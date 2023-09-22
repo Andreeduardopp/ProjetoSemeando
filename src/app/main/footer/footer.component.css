@@ -12,13 +12,6 @@
     margin: 0;
     padding: 0;
   }
-
-  img {
-    position: relative;
-    filter: invert();
-    top: 20%;
-
-  }
 }
 
 .footer1 .footer2,
