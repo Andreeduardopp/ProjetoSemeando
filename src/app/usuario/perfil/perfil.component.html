@@ -11,13 +11,13 @@
             </h5>
         </div>
         <div class="navbar row">
-            <button class="text-button col-md-2" [ngClass]="{'active': this.botaoAtivo === 'perfil'}"
+            <button class="text-button col-lg-2" [ngClass]="{'active': this.botaoAtivo === 'perfil'}"
                 (click)="abrePerfil()">Perfil</button>
-            <button class="text-button col-md-2" [ngClass]="{'active': botaoAtivo === 'novo-evento'}"
+            <button class="text-button col-lg-2" [ngClass]="{'active': botaoAtivo === 'novo-evento'}"
                 (click)="criaEventos()">Novo evento</button>
-            <button class="text-button col-md-2" [ngClass]="{'active': botaoAtivo === 'eventos-do-usuario'}"
+            <button class="text-button col-lg-2" [ngClass]="{'active': botaoAtivo === 'eventos-do-usuario'}"
                 (click)="abreEventos()">Eventos do usuario</button>
-            <button class="logout-button col-md-2" (click)="logout()">Log out</button>
+            <button class="logout-button col-lg-2" (click)="logout()">Log out</button>
 
         </div>
         <div class="main-content">    

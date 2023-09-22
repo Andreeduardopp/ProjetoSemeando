@@ -35,7 +35,6 @@ export class CriarEventoComponent implements OnInit {
       titulo: ['', Validators.required],
       data: ['', Validators.required],
       time: ['', Validators.required],
-      foto: ['']
     });
 
     this.FormStep2 = this.formBuilder.group({
@@ -81,7 +80,6 @@ export class CriarEventoComponent implements OnInit {
     }
   }
   removeImage() {
-    this.FormStep1.get('foto')?.setValue(null); // Limpa o controle do formulário
     this.selectedFile = null; // Limpa a variável que guarda a imagem selecionada
     this.imagePreviewUrl = null
   }

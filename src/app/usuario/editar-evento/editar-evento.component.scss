@@ -108,14 +108,12 @@ mat-step {
             align-items: center;
             color: black;
             background: transparent;
-            border: 2px solid red;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
             transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
             cursor: pointer;
-
+            z-index: 5;
             &:hover {
-                background-color: red;
-                border-color: red;
-                transform: scale(1.05);
+                transform: scale(1.1);
             }
 
         }

@@ -44,8 +44,9 @@
                     </ngx-dropzone>
                     <div class="image-preview" *ngIf="imagePreviewUrl">
                         <img [src]="imagePreviewUrl" alt="Foto do Evento" class="preview-image">
-                        <button mat-icon-button class="remove-button" *ngIf="imagePreviewUrl" (click)="removeImage()">
-                            <mat-icon>close</mat-icon>
+                        <button mat-icon-button class="remove-button" *ngIf="imagePreviewUrl" (click)="removeImage()"
+                        #tooltip="matTooltip" matTooltip="Trocar a foto" matTooltipPosition="above">
+                            x
                         </button>
                     </div>
                 </div>

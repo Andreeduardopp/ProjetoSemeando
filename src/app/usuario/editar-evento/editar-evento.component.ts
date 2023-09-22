@@ -64,7 +64,6 @@ export class EditarEventoComponent implements OnInit {
       titulo: [this.evento.titulo, Validators.required],
       data: [this.evento.data, Validators.required],
       time: [this.evento.hora_inicio, Validators.required],
-      foto: ['']
     });
 
     this.FormStep2 = this.formBuilder.group({
@@ -93,7 +92,6 @@ export class EditarEventoComponent implements OnInit {
   }
 
   removeImage() {
-    this.FormStep1.get('foto')?.setValue(null); // Limpa o controle do formulário
     this.selectedFile = null; // Limpa a variável que guarda a imagem selecionada
     this.imagePreviewUrl = null
   }
