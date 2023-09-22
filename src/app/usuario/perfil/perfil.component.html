@@ -1,0 +1,31 @@
+<div class="page-container">
+    <div class="background">
+    </div>
+    <div class="logo">
+        <a routerLink="/"><img src="../../../assets/images/logo1.png" class="logo"></a>
+    </div>
+    <div class="profile-container">
+        <div class="texto">
+            <span>BEM VINDO!</span>
+            <h5> Essa é sua pagina de perfil,inclua suas informações, crie eventos e visualize seus eventos ja criados.
+            </h5>
+        </div>
+        <div class="navbar row">
+            <button class="text-button col-md-2" [ngClass]="{'active': this.botaoAtivo === 'perfil'}"
+                (click)="abrePerfil()">Perfil</button>
+            <button class="text-button col-md-2" [ngClass]="{'active': botaoAtivo === 'novo-evento'}"
+                (click)="criaEventos()">Novo evento</button>
+            <button class="text-button col-md-2" [ngClass]="{'active': botaoAtivo === 'eventos-do-usuario'}"
+                (click)="abreEventos()">Eventos do usuario</button>
+            <button class="logout-button col-md-2" (click)="logout()">Log out</button>
+
+        </div>
+        <div class="main-content">    
+            <router-outlet></router-outlet>  
+        </div>
+        <div class="detail" style="position: relative;">
+            <div class="background2">
+            </div>
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="body">
+    <div class="head container-fluid">
+        <app-menu></app-menu>
+    </div>
+    <div class="container-md main-container">
+        <router-outlet></router-outlet>
+    </div>
+    <button class="logout-button" (click)="navPerfil()" *ngIf="this.token"
+    #tooltip="matTooltip" matTooltip="Criar novo evento" matTooltipPosition="right"
+    >+</button>
+    <app-footer></app-footer>
+</div>

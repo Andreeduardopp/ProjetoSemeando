@@ -1,0 +1,18 @@
+<div class="card" *ngIf="usuario">
+    <div class="perfil-img" style="position: relative;">
+        <img [src]="usuario.foto_perfil" alt="...">
+        <button type="button" class="btn-close" aria-label="Close" (click)="bsModalRef.hide()"></button>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{usuario.last_name}}</h5>
+        <h3>{{usuario.first_name}}</h3>
+    </div>
+    <div class="infos">
+        <div class="info"><p>Contato:</p><span>{{usuario.celular}}</span></div>
+        <div class="info"><p>Email:</p>{{usuario.email}}<span></span></div>
+    </div>
+    <div class="bio">
+        <h5>Bio:</h5>
+        <p class="texto">{{usuario.bio}}</p>
+    </div>
+</div>

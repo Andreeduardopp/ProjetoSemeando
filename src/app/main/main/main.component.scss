@@ -1,0 +1,43 @@
+.body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: white;
+
+  .head{
+    min-width: 100vw;
+    padding: 0px;
+
+  }
+  .main-container {
+    background-color: white;
+    padding-top: 100px;
+    padding-bottom: 150px;
+  }
+
+
+}
+
+.logout-button {
+  position: fixed;
+  top: 80vh;
+  left: 80vw;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: black;
+  background: transparent;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: #FFB7C5;
+  z-index: 5;
+  &:hover {
+    scale: 1.1;
+  }
+}

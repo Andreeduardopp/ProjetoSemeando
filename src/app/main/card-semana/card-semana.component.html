@@ -1,0 +1,23 @@
+<main>
+  <input type="text" [formControl]="search" class="input-search" placeholder="Encontre seu evento">
+  <div class="card" *ngFor="let item of this.eventos| paginate: { itemsPerPage: 5, currentPage: p } 
+  " (click)="navegarParaDetalhes(item.id)">
+    <div>
+      <img src={{item.foto_principal}} alt="">
+      <div class="overlay"></div>
+    </div>
+    <div class="card-content">
+      <h2>
+        {{item.titulo}}
+      </h2>
+      <p class="date">
+        {{item.dia_evento}} do {{item.mes_evento}}, {{item.ano_evento}}
+      </p>
+      <a>
+        Incio do evento as {{item.hora_inicio}}. Clique no card para saber mais.
+      </a>
+    </div>
+  </div>
+  <div *ngIf="this.eventos.length === 0" style="height: 50vh; display: flex; justify-content: center; align-items: center;"><h1>Nenhum evento para essa semana</h1></div>
+  <pagination-controls style="width: 100%; padding-left: 35%;" (pageChange)="onPageChange($event)"></pagination-controls>
+</main>

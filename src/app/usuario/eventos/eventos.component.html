@@ -1,0 +1,21 @@
+<main>
+  <div class="card" *ngFor="let item of this.eventos" (click)="editarEvento(item.id)"
+  #tooltip="matTooltip" matTooltip="Clique para editar o evento" matTooltipPosition="above">
+    <div>
+      <img src={{item.foto_principal}} alt="">
+      <div class="overlay"></div>
+    </div>
+    <div class="card-content">
+      <h2>
+        {{item.titulo}}
+      </h2>
+      <p class="date">
+        {{item.dia_evento}} do {{item.mes_evento}}, {{item.ano_evento}}
+      </p>
+      <a>
+        Incio do evento as {{item.hora_inicio}}. Clique no card para saber mais.
+      </a>
+    </div>
+  </div>
+  <div *ngIf="this.eventos.length === 0" style="height: 50vh;"><h1>Nenhum evento criado</h1></div>
+</main>

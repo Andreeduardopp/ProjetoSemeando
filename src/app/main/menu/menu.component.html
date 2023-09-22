@@ -1,0 +1,32 @@
+<div class="page-container">
+  <div class="background">
+  </div>
+  <div class="painel row">
+    <div class="logo">
+      <a routerLink="principal"><img src="../../../assets/images/logo1.png" class="logo"></a>
+    </div>
+    <div class="login-2">
+      <div class="texto">
+        <h2>SEUS EVENTOS EM PATO BRANCO</h2>
+      </div>
+    </div>
+  </div>
+  <div class="navegacao ">
+    <div class="rotas row">
+      <div class="col-md-3 " ><a class="rota" routerLink="principal" routerLinkActive="routeActive">Todos os eventos</a></div>
+      <div class="col-md-3 "><a class="rota" routerLink="semanais" routerLinkActive="routeActive">Eventos da semana</a></div>
+      <div class="col-md-3">
+        <a *ngIf="!token" href="http://localhost:4200/login" class="botao-login">
+          <span>Log in</span>
+        </a>
+        <a *ngIf="token" (click)="abrePerfil()" class="botao-login" >
+          <span>Conta</span>
+        </a>
+      </div>
+      <button type="button" class="menu-button col-md-1" (click)="toggleMenu()">
+        <span class="fa fa-bars"></span>
+      </button>
+    </div>
+  </div>
+
+</div>

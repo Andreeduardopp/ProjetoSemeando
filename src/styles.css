@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+html,
+body {
+    height: 100%;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #0B5563;
+    border-radius: 4px;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Cores principais */
+:root {
+    /*background*/
+    --bg-cor-primaria: #BEB8EB;
+    --bg-cor-secundaria: #FFD6AF;
+    --bg-cor-terciaria: #EFF0D1;
+}
+
+/* Cores de contraste */
+:root {
+    --cor-contraste-1: #03191E;
+    --cor-contraste-2: #0B5563;
+    --color-1: #21D4FD;
+    --color-2: #B721FF;
+    --color-3: #08AEEA;
+    --color-4: #2AF598;
+    
+}
+
+/* Cores e fonte de fundo e texto */
+:root {
+    --cor-fundo: #A2BCE0;
+    --cor-texto: #5E5C6C;
+    --font-titulo: 20px;
+    --font-texto: 14px;
+    --font-principal: 30px
+}
+
+/* Cores para destaques */
+:root {
+    --cor-destaque-1: #FFF689;
+    --cor-destaque-2: #FFB7C5;
+}
+
+.modal-arredondada .modal-content {
+    border-radius: 50px; /* Ajuste o valor conforme necessário */
+    top: 50px;
+  }
+
+  .routeActive{
+    background-color: #FFB7C5;
+    border-color: #f2768f;
+    transform: scale(1.05);
+}
