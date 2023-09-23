@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -32,8 +33,13 @@ export class CadastroComponent {
     formData.append('email', email);
     formData.append('password1', password1);
     formData.append('password2', password2);
-    console.log(formData)
-    this.requestService.cadastro(formData).subscribe(
+    
+    this.requestService.cadastro(formData).pipe(
+      catchError(() => {
+        alert('Verifique se todos os campos estão preenchidos corretamente.');
+        return throwError('Erro ocorreu'); // Retorna um erro para parar a cadeia de observação
+      })
+    ).subscribe(
       (response) => {
         console.log(response)
         if (response) {
@@ -60,3 +66,7 @@ export class CadastroComponent {
     }
   }
 }
+function throwError(arg0: string): any {
+  throw new Error('Function not implemented.');
+}
+

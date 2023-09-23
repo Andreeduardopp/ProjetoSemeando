@@ -40,13 +40,12 @@ export class LoginComponent {
     formData.append('password', password);
 
     this.requestService.login(formData).pipe(
-      catchError((error) => {
-        console.error(error); // Exibe o erro no console (você pode remover isso em produção)
+      catchError(() => {
         alert('Dados invalidos. Verifique se todos os campos estão preenchidos corretamente.');
         return throwError('Erro ocorreu'); // Retorna um erro para parar a cadeia de observação
       })
     ).subscribe(
-      (response) => {
+      (response): void => {
         console.log(response)
         if (response.access && response.refresh) {
           localStorage.setItem('access_token', response.access);

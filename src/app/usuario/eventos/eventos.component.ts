@@ -42,10 +42,25 @@ export class EventosComponent implements OnInit {
   }
 
 
-  editarEvento(eventoId: number) {
+  editarEvento(eventoId: number,e: MouseEvent) {
+    const { target } = e;
+
+    if ((target as HTMLElement).closest('.delete-button')) {
+        return;
+    }
+
     this.router.navigate(['usuario/evento', eventoId])
   }
 
+  deletarEvento(eventoId: number){
+    let usuarioId = localStorage.getItem('user_PK');
+    const confirmacao = window.confirm('Tem certeza de que deseja deletar este evento?');
+
+    if (confirmacao) {
+      this.requestService.deleteEvento(eventoId);
+      this.router.navigate([`usuario/perfil/${usuarioId}`])
+    }
+  }
 }
 
 

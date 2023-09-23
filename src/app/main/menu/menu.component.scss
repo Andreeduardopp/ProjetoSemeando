@@ -1,4 +1,4 @@
-.page-container{
+.page-container {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@
     width: 100%;
     background: transparent;
 
-    
+
 
     .logo {
         display: flex;
@@ -88,7 +88,7 @@
 
 .navegacao {
     width: 100%;
-    height: 150px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +128,7 @@
                 border-color: #f2768f;
             }
 
-            
+
         }
 
 
@@ -168,9 +168,29 @@
 
 @media only screen and (max-width: 750px) {
 
-    .texto {
-        display: none;
+    .login-2 {
+        display: none !important;
     }
 
 
-  }
+
+    .navegacao {
+        height: 70%;
+    }
+
+    .rotas {
+        height: 100%;
+
+        div{
+            display: flex;
+            justify-content: center !important;
+            align-items: center;
+           
+        }
+       
+    }
+
+    .botao-login{
+        margin-left: 0px !important;
+    }
+}

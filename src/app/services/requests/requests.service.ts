@@ -70,7 +70,9 @@ export class RequestsService {
     return this.httpClient.post<any>(`${this.url}/eventos/eventos/`, formData);
   }
 
-
+  deleteEvento(id: any){
+    return this.httpClient.delete<any>(`${this.url}/eventos/eventos/${id}`).subscribe(() => alert("evento excluido!"))
+  }
   //---------------------------------lOGIN E AUTH--------------------------------------------------------------
 
   login(formData: FormData) {

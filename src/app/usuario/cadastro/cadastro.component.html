@@ -36,7 +36,7 @@
         </button>
       </div>
       <div class="form-group position-relative" style="width: 80%;">
-        <label for="password2" class="password-label">Senha</label>
+        <label for="password2" class="password-label">Repita sua senha</label>
         <input [type]="repeatPasswordType? 'text' : 'password'" class="form-control password-input" id="password2"
           formControlName="password2" [ngClass]="{
                       'is-valid': form.get('password2')?.valid,
