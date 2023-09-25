@@ -85,7 +85,8 @@
                 </div>
                 <div class="form-group">
                     <label>Valor da Entrada</label>
-                    <input type="text" formControlName="valor_entrada" class="form-control" [ngClass]="{
+                    <input type="text" formControlName="valor_entrada" class="form-control" (input)="mascaraMoeda($event)"
+                     [ngClass]="{
               'is-valid': FormStep2.get('valor_entrada')?.valid,
               'is-invalid': FormStep2.get('valor_entrada')?.invalid && (FormStep2.get('valor_entrada')?.touched || FormStep2.get('valor_entrada')?.dirty)
           }">
@@ -96,7 +97,7 @@
                 </div>
                 <div class="form-group ">
                     <label>CEP</label>
-                    <input type="text" formControlName="cep" class="form-control"
+                    <input type="text" formControlName="cep" class="form-control" maxlength="8"
                         [ngClass]="{
                         'is-valid': FormStep2.get('cep')?.valid,
                         'is-invalid': FormStep2.get('cep')?.invalid && (FormStep2.get('cep')?.touched || FormStep2.get('cep')?.dirty)}">

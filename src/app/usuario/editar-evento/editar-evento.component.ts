@@ -144,4 +144,33 @@ export class EditarEventoComponent implements OnInit {
       })
   }
 
+  mascaraMoeda(e: any) {
+    const input = e.target;
+    let value = input.value.replace(/\D/g, ''); // Remover tudo que não é dígito
+    const length = value.length;
+    let text: any = [];
+
+    if (length > 2) {
+      // Dividir o valor em parte inteira e decimal
+      const partInteira = value.substring(0, length - 2);
+      const partDecimal = value.substring(length - 2);
+
+      // Construir o texto formatado
+      text = partInteira.split('').reverse().map((char: any, index: any) => {
+        if (index > 0 && index % 3 === 0) {
+          return char + '.';
+        }
+        return char;
+      }).reverse();
+
+      text = text.join('') + '.' + partDecimal;
+    } else {
+      // Caso o valor seja menor que 3 dígitos
+      text = value;
+    }
+    this.FormStep2.patchValue({
+      valor_entrada: text
+    });
+  }
+
 }

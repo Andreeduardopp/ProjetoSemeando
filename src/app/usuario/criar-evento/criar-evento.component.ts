@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-criar-evento',
@@ -105,8 +106,7 @@ export class CriarEventoComponent implements OnInit {
       formData.append('foto_principal', this.selectedFile, this.selectedFile.name);
 
       this.requestService.postEvento(formData).subscribe(
-        (response) => {
-          console.log('Evento criado:', response);
+        () => {
           this.FormStep1.reset();
           this.FormStep2.reset();
           this.selectedFile = null; // Limpa a imagem selecionada
@@ -136,4 +136,31 @@ export class CriarEventoComponent implements OnInit {
       })
   }
 
+  mascaraMoeda(e: any) {
+    const input = e.target;
+    let value = input.value.replace(/\D/g, ''); // Remover tudo que não é dígito
+    const length = value.length;
+    let text: any = [];
+
+    if (length > 2) {
+      // Dividir o valor em parte inteira e decimal
+      const partInteira = value.substring(0, length - 2);
+      const partDecimal = value.substring(length - 2);
+
+      // Construir o texto formatado
+      text = partInteira.split('').reverse().map((char: any, index: any) => {
+        if (index > 0 && index % 3 === 0) {
+          return char + '.';
+        }
+        return char;
+      }).reverse();
+
+      text = text.join('') + '.' + partDecimal;
+    } else {
+      text = value;
+    }
+    this.FormStep2.patchValue({
+      valor_entrada: text
+    });
+  }
 }

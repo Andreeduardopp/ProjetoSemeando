@@ -19,7 +19,6 @@ import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.componen
 import { DetalheUserComponent } from './detalhe-user/detalhe-user.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 @NgModule({
   declarations: [
     CardsComponent,
@@ -44,7 +43,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RouterModule,
     MainRoutingModule,
     ModalModule.forRoot() ,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports:[
     CardsComponent,

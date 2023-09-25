@@ -17,6 +17,7 @@ export class CardSemanaComponent implements OnInit {
   httpParams = new HttpParams()
   p: number = 1;
   page!:any
+  pages:any
 
 
   constructor(
@@ -34,6 +35,9 @@ export class CardSemanaComponent implements OnInit {
       this.buscarEventos()
     });
     this.buscarEventos()
+    this.requestService.getPageSemana().subscribe(count => {
+      this.pages = count;
+    });
   }
 
   onPageChange(event: any) {
@@ -42,11 +46,12 @@ export class CardSemanaComponent implements OnInit {
   }
 
   buscarEventos() {
-    const currentPage = Math.ceil(this.p/2);
+    const currentPage = this.p
     this.httpParams = this.httpParams.set('page', currentPage.toString())
-    this.requestService.getEventos(this.httpParams)
+    this.httpParams = this.httpParams.set('ordering', 'data')
+    this.requestService.getEventosSemana(this.httpParams)
       .subscribe(eventos => {
-        this.eventos = eventos.filter(it => this.capturaSemanais(it.data)).reverse()
+        this.eventos = eventos.filter(it => this.capturaSemanais(it.data))
       })
   }
 

@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms'
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { HttpParams } from '@angular/common/http'
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Evento } from 'src/app/models/evento/evento';
 
 
 @Component({
@@ -16,11 +17,12 @@ export class CardsComponent {
   p: number = 1;
   userId = localStorage.getItem('user_PK')
   editar: boolean = false
-  eventos: any[] = []
-  evento: any
+  eventos: Evento[] = []
+  evento!: Evento
   search = new FormControl()
   httpParams = new HttpParams()
   page!:any
+  pages:any
 
   constructor(
     private requestService: RequestsService,
@@ -42,6 +44,9 @@ export class CardsComponent {
       this.buscarEventos()
     });
     this.buscarEventos()
+    this.requestService.getPage().subscribe(count => {
+      this.pages = count;
+    });
   }
 
   onPageChange(event: any) {
@@ -50,11 +55,11 @@ export class CardsComponent {
   }
 
   buscarEventos() {
-    const currentPage = Math.ceil(this.p/2);
+    const currentPage = this.p;
     this.httpParams = this.httpParams.set('page', currentPage.toString())
     this.requestService.getEventos(this.httpParams)
       .subscribe(eventos => {
-        this.eventos = eventos.reverse()
+        this.eventos = eventos
       })
   }
 }

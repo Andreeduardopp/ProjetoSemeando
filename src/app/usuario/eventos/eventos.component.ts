@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { HttpParams } from '@angular/common/http'
+import { Evento } from 'src/app/models/evento/evento';
 
 @Component({
   selector: 'app-eventos',
@@ -10,8 +11,8 @@ import { HttpParams } from '@angular/common/http'
 })
 export class EventosComponent implements OnInit {
   httpParams = new HttpParams()
-  eventos: any[] = []
-  evento: any
+  eventos: Evento[] = []
+  evento!: Evento
 
   constructor(
     private requestService: RequestsService,
@@ -19,27 +20,14 @@ export class EventosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    this.requestService.getEventos(this.httpParams)
+    let usuarioId = localStorage.getItem('user_PK');
+    this.httpParams = this.httpParams.set('user_id', usuarioId!)
+    this.requestService.getEventoUser(this.httpParams)
       .subscribe(eventos => {
-        this.eventos = eventos.filter(it => this.eventosUser(it.user))
+        this.eventos = eventos
      })
   }
 
-  eventosUser(user: any) {
-    let usuarioId = localStorage.getItem('user_PK');
-    if (!usuarioId) {
-      alert('Por favor, realize o login novamente.');
-      this.router.navigate(['/login']);
-      return false; // Retorna false para indicar que não há usuário logado.
-    }
-
-    if (!user || user.id === null) {
-      return false; // Retorna false se o objeto user for nulo ou user.id for nulo.
-    }
-
-    return parseInt(usuarioId) === parseInt(user.id);
-  }
 
 
   editarEvento(eventoId: number,e: MouseEvent) {
