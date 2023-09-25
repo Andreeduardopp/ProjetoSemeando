@@ -6,8 +6,8 @@
                     Selecionar uma imagem
                 </button>
             </ngx-dropzone>
-            <div class="photo" *ngIf="imagePreviewUrl"
-            #tooltip="matTooltip" matTooltip="Clique no icone para trocar de foto" matTooltipPosition="right">
+            <div class="photo" *ngIf="imagePreviewUrl" #tooltip="matTooltip" matTooltip="Clique no icone para trocar de foto"
+                matTooltipPosition="right">
                 <img [src]="this.imagePreviewUrl" class="preview-image">
                 <button class="remove-button" *ngIf="imagePreviewUrl" (click)="removeImage()">
                     <a class="fa fa-edit"></a>
@@ -20,44 +20,44 @@
                 <div class="form-group info-section">
                     <label>Username:</label>
                     <input [readonly]="!editar" type="text" formControlName="username" class="form-control" [ngClass]="{
-              'is-valid': usuarioForm.get('username')?.valid,
-              'is-invalid': usuarioForm.get('username')?.invalid && (usuarioForm.get('username')?.touched || usuarioForm.get('username')?.dirty)
-                }">
+                              'is-valid': usuarioForm.get('username')?.valid,
+                              'is-invalid': usuarioForm.get('username')?.invalid && (usuarioForm.get('username')?.touched || usuarioForm.get('username')?.dirty)
+                                }">
                 </div>
                 <div class="form-group info-section">
                     <label>Nome do local:</label>
                     <input [readonly]="!editar" type="text" formControlName="nome" class="form-control" [ngClass]="{
-              'is-valid': usuarioForm.get('nome')?.valid,
-              'is-invalid': usuarioForm.get('nome')?.invalid && (usuarioForm.get('nome')?.touched || usuarioForm.get('nome')?.dirty)
-                }">
+                              'is-valid': usuarioForm.get('nome')?.valid,'is-invalid': usuarioForm.get('nome')?.invalid &&
+                               (usuarioForm.get('nome')?.touched || usuarioForm.get('nome')?.dirty)}">
                 </div>
                 <div class="form-group info-section">
                     <label>Tipo de Local</label>
                     <input [readonly]="!editar" type="text" formControlName="categoria" class="form-control" [ngClass]="{
-              'is-valid': usuarioForm.get('categoria')?.valid,
-              'is-invalid': usuarioForm.get('categoria')?.invalid && (usuarioForm.get('categoria')?.touched || usuarioForm.get('categoria')?.dirty)
-                }" placeholder="Ex: Cervejaria, bar, restaurante.">
+                              'is-valid': usuarioForm.get('categoria')?.valid,
+                              'is-invalid': usuarioForm.get('categoria')?.invalid && (usuarioForm.get('categoria')?.touched || usuarioForm.get('categoria')?.dirty)
+                                }" placeholder="Ex: Cervejaria, bar, restaurante.">
                 </div>
                 <div class="form-group info-section">
                     <label>Contato</label>
-                    <input [readonly]="!editar" type="text" formControlName="contato" class="form-control" placeholder="(xx)999999999" [ngClass]="{
-              'is-valid': usuarioForm.get('contato')?.valid,
-              'is-invalid': usuarioForm.get('contato')?.invalid && (usuarioForm.get('contato')?.touched || usuarioForm.get('contato')?.dirty)
-                }">
+                    <input [readonly]="!editar" type="text" formControlName="contato" class="form-control" placeholder="(xx)999999999"
+                        [ngClass]="{
+                              'is-valid': usuarioForm.get('contato')?.valid,
+                              'is-invalid': usuarioForm.get('contato')?.invalid && (usuarioForm.get('contato')?.touched || usuarioForm.get('contato')?.dirty)
+                                }">
                 </div>
                 <div class="form-group info-section">
                     <label>E-mail</label>
                     <input [readonly]="!editar" type="email" formControlName="email" class="form-control" [ngClass]="{
-              'is-valid': usuarioForm.get('email')?.valid,
-              'is-invalid': usuarioForm.get('email')?.invalid && (usuarioForm.get('email')?.touched || usuarioForm.get('email')?.dirty)
-                }">
+                              'is-valid': usuarioForm.get('email')?.valid,
+                              'is-invalid': usuarioForm.get('email')?.invalid && (usuarioForm.get('email')?.touched || usuarioForm.get('email')?.dirty)
+                                }">
                 </div>
                 <div class="form-group info-section">
                     <label>Bio</label>
                     <input [readonly]="!editar" type="text" formControlName="bio" class="form-control" [ngClass]="{
-              'is-valid': usuarioForm.get('email')?.valid,
-              'is-invalid': usuarioForm.get('email')?.invalid && (usuarioForm.get('email')?.touched || usuarioForm.get('email')?.dirty)
-                }" placeholder="descreva seu local , as qualidades e diferenciais que se tem nele.">
+                              'is-valid': usuarioForm.get('email')?.valid,
+                              'is-invalid': usuarioForm.get('email')?.invalid && (usuarioForm.get('email')?.touched || usuarioForm.get('email')?.dirty)
+                                }" placeholder="descreva seu local , as qualidades e diferenciais que se tem nele.">
                 </div>
                 <div class="info-section" *ngIf="!editar">
                     <button class="button-editar" (click)="editarInfo()">Editar</button>

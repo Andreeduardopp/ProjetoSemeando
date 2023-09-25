@@ -5,9 +5,9 @@
                 <div class="form-group">
                     <label>Título do Evento</label>
                     <input id="titulo" type="text" formControlName="titulo" class="form-control" [ngClass]="{
-              'is-valid': FormStep1.get('titulo')?.valid,
-              'is-invalid': FormStep1.get('titulo')?.invalid && (FormStep1.get('titulo')?.touched || FormStep1.get('titulo')?.dirty)
-          }">
+                              'is-valid': FormStep1.get('titulo')?.valid,
+                              'is-invalid': FormStep1.get('titulo')?.invalid && (FormStep1.get('titulo')?.touched || FormStep1.get('titulo')?.dirty)
+                          }">
                     <ul
                         *ngIf="FormStep1.get('titulo')?.invalid && (FormStep1.get('titulo')?.touched || FormStep1.get('titulo')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
@@ -16,22 +16,20 @@
                 <div class="form-group">
                     <label>Data do Evento</label>
                     <input type="date" formControlName="data" class="form-control" [min]="dataMinima" [ngClass]="{
-              'is-valid': FormStep1.get('data')?.valid,
-              'is-invalid': FormStep1.get('data')?.invalid && (FormStep1.get('data')?.touched || FormStep1.get('data')?.dirty)
-                }">
-                    <ul
-                        *ngIf="FormStep1.get('data')?.invalid && (FormStep1.get('data')?.touched || FormStep1.get('data')?.dirty)">
+                              'is-valid': FormStep1.get('data')?.valid,
+                              'is-invalid': FormStep1.get('data')?.invalid && (FormStep1.get('data')?.touched || FormStep1.get('data')?.dirty)
+                                }">
+                    <ul *ngIf="FormStep1.get('data')?.invalid && (FormStep1.get('data')?.touched || FormStep1.get('data')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
                     </ul>
                 </div>
                 <div class="form-group">
                     <label>Hora de inicio</label>
                     <input type="time" formControlName="time" class="form-control" [ngClass]="{
-              'is-valid': FormStep1.get('time')?.valid,
-              'is-invalid': FormStep1.get('time')?.invalid && (FormStep1.get('time')?.touched || FormStep1.get('time')?.dirty)
-                }">
-                    <ul
-                        *ngIf="FormStep1.get('time')?.invalid && (FormStep1.get('time')?.touched || FormStep1.get('time')?.dirty)">
+                              'is-valid': FormStep1.get('time')?.valid,
+                              'is-invalid': FormStep1.get('time')?.invalid && (FormStep1.get('time')?.touched || FormStep1.get('time')?.dirty)
+                                }">
+                    <ul *ngIf="FormStep1.get('time')?.invalid && (FormStep1.get('time')?.touched || FormStep1.get('time')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
                     </ul>
                 </div>
@@ -62,9 +60,9 @@
                 <div class="form-group">
                     <label>Categoria do Evento</label>
                     <select formControlName="categoria" class="form-control" [ngClass]="{
-              'is-valid': FormStep2.get('categoria')?.valid,
-              'is-invalid': FormStep2.get('categoria')?.invalid && (FormStep2.get('categoria')?.touched || FormStep2.get('categoria')?.dirty)
-          }">
+                              'is-valid': FormStep2.get('categoria')?.valid,
+                              'is-invalid': FormStep2.get('categoria')?.invalid && (FormStep2.get('categoria')?.touched || FormStep2.get('categoria')?.dirty)
+                          }">
                         <option *ngFor="let item of generos">{{item}}</option>
                     </select>
                     <ul
@@ -75,9 +73,9 @@
                 <div class="form-group">
                     <label>Descrição do Evento</label>
                     <textarea formControlName="descricao" class="form-control" [ngClass]="{
-              'is-valid': FormStep2.get('descricao')?.valid,
-              'is-invalid': FormStep2.get('descricao')?.invalid && (FormStep2.get('descricao')?.touched || FormStep2.get('descricao')?.dirty)
-          }"></textarea>
+                              'is-valid': FormStep2.get('descricao')?.valid,
+                              'is-invalid': FormStep2.get('descricao')?.invalid && (FormStep2.get('descricao')?.touched || FormStep2.get('descricao')?.dirty)
+                          }"></textarea>
                     <ul
                         *ngIf="FormStep2.get('descricao')?.invalid && (FormStep2.get('descricao')?.touched || FormStep2.get('descricao')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
@@ -85,11 +83,10 @@
                 </div>
                 <div class="form-group">
                     <label>Valor da Entrada</label>
-                    <input type="text" formControlName="valor_entrada" class="form-control"
-                    (input)="mascaraMoeda($event)"  [ngClass]="{
-              'is-valid': FormStep2.get('valor_entrada')?.valid,
-              'is-invalid': FormStep2.get('valor_entrada')?.invalid && (FormStep2.get('valor_entrada')?.touched || FormStep2.get('valor_entrada')?.dirty)
-          }">
+                    <input type="text" formControlName="valor_entrada" class="form-control" (input)="mascaraMoeda($event)" [ngClass]="{
+                              'is-valid': FormStep2.get('valor_entrada')?.valid,
+                              'is-invalid': FormStep2.get('valor_entrada')?.invalid && (FormStep2.get('valor_entrada')?.touched || FormStep2.get('valor_entrada')?.dirty)
+                          }">
                     <ul
                         *ngIf="FormStep2.get('valor_entrada')?.invalid && (FormStep2.get('valor_entrada')?.touched || FormStep2.get('valor_entrada')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
@@ -99,37 +96,35 @@
                     <label>CEP</label>
                     <input type="text" formControlName="cep" class="form-control" maxlength="8"
                         [ngClass]="{
-                        'is-valid': FormStep2.get('cep')?.valid,
-                        'is-invalid': FormStep2.get('cep')?.invalid && (FormStep2.get('cep')?.touched || FormStep2.get('cep')?.dirty)}">
-                    <ul
-                        *ngIf="FormStep2.get('cep')?.invalid && (FormStep2.get('cep')?.touched || FormStep2.get('cep')?.dirty)">
+                                    'is-valid': FormStep2.get('cep')?.valid,
+                                    'is-invalid': FormStep2.get('cep')?.invalid && (FormStep2.get('cep')?.touched || FormStep2.get('cep')?.dirty)}">
+                    <ul *ngIf="FormStep2.get('cep')?.invalid && (FormStep2.get('cep')?.touched || FormStep2.get('cep')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
                     </ul>
                 </div>
                 <div class="form-group">
                     <label>Rua</label>
                     <input type="text" formControlName="rua" class="form-control" [ngClass]="{
-              'is-valid': FormStep2.get('rua')?.valid,
-              'is-invalid': FormStep2.get('rua')?.invalid && (FormStep2.get('rua')?.touched || FormStep2.get('rua')?.dirty)
-          }">
-                    <ul
-                        *ngIf="FormStep2.get('rua')?.invalid && (FormStep2.get('rua')?.touched || FormStep2.get('rua')?.dirty)">
+                              'is-valid': FormStep2.get('rua')?.valid,
+                              'is-invalid': FormStep2.get('rua')?.invalid && (FormStep2.get('rua')?.touched || FormStep2.get('rua')?.dirty)
+                          }">
+                    <ul *ngIf="FormStep2.get('rua')?.invalid && (FormStep2.get('rua')?.touched || FormStep2.get('rua')?.dirty)">
                         <li style="color: red;">Campo obrigatório</li>
                     </ul>
                 </div>
                 <div class="form-group">
                     <label>Número</label>
                     <input type="text" formControlName="numero" class="form-control" [ngClass]="{
-                        'is-valid': FormStep2.get('numero')?.valid,
-                        'is-invalid': FormStep2.get('numero')?.invalid && (FormStep2.get('numero')?.touched || FormStep2.get('numero')?.dirty)
-                    }">
+                                'is-valid': FormStep2.get('numero')?.valid,
+                                'is-invalid': FormStep2.get('numero')?.invalid && (FormStep2.get('numero')?.touched || FormStep2.get('numero')?.dirty)
+                            }">
                 </div>
                 <div class="form-group">
                     <label>Cidade</label>
                     <input type="text" formControlName="cidade" class="form-control" [ngClass]="{
-                        'is-valid': FormStep2.get('cidade')?.valid,
-                        'is-invalid': FormStep2.get('cidade')?.invalid && (FormStep2.get('cidade')?.touched || FormStep2.get('cidade')?.dirty)
-                    }">
+                                'is-valid': FormStep2.get('cidade')?.valid,
+                                'is-invalid': FormStep2.get('cidade')?.invalid && (FormStep2.get('cidade')?.touched || FormStep2.get('cidade')?.dirty)
+                            }">
                 </div>
                 <div class="d-flex justify-content-between">
                     <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>

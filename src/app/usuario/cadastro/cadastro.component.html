@@ -7,9 +7,9 @@
       <div class="form-group" style="width: 80%;">
         <label for="username" class="username-label">Username</label>
         <input id="username" type="text" class="form-control username-input" formControlName="username" [ngClass]="{
-                  'is-valid': form.get('username')?.valid,
-                  'is-invalid': form.get('username')?.invalid && (form.get('username')?.touched || form.get('username')?.dirty)
-              }">
+                      'is-valid': form.get('username')?.valid,
+                      'is-invalid': form.get('username')?.invalid && (form.get('username')?.touched || form.get('username')?.dirty)
+                  }">
         <ul *ngIf="form.get('username')?.invalid && (form.get('username')?.touched || form.get('username')?.dirty)">
           <li *ngIf="form.get('username')?.hasError('username')">E-mail inválido</li>
         </ul>
@@ -17,9 +17,9 @@
       <div class="form-group" style="width: 80%;">
         <label for="username" class="username-label">E-mail</label>
         <input id="email" type="text" class="form-control username-input" formControlName="email" [ngClass]="{
-                  'is-valid': form.get('email')?.valid,
-                  'is-invalid': form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)
-              }">
+                      'is-valid': form.get('email')?.valid,
+                      'is-invalid': form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)
+                  }">
         <ul *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
           <li *ngIf="form.get('email')?.hasError('email')">E-mail inválido</li>
         </ul>
@@ -28,9 +28,9 @@
         <label for="password1" class="password-label">Senha</label>
         <input [type]="fieldTextType ? 'text' : 'password'" class="form-control password-input" id="password1"
           formControlName="password1" [ngClass]="{
-                      'is-valid': form.get('password1')?.valid,
-                      'is-invalid': form.get('password1')?.invalid && (form.get('password1')?.touched || form.get('password1')?.dirty)
-                  }">
+                          'is-valid': form.get('password1')?.valid,
+                          'is-invalid': form.get('password1')?.invalid && (form.get('password1')?.touched || form.get('password1')?.dirty)
+                      }">
         <button class="toggle-password" (click)="togglePasswordVisibility()">
           <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
         </button>
@@ -39,17 +39,16 @@
         <label for="password2" class="password-label">Repita sua senha</label>
         <input [type]="repeatPasswordType? 'text' : 'password'" class="form-control password-input" id="password2"
           formControlName="password2" [ngClass]="{
-                      'is-valid': form.get('password2')?.valid,
-                      'is-invalid': form.get('password2')?.invalid && (form.get('password2')?.touched || form.get('password2')?.dirty)
-                  }">
+                          'is-valid': form.get('password2')?.valid,
+                          'is-invalid': form.get('password2')?.invalid && (form.get('password2')?.touched || form.get('password2')?.dirty)
+                      }">
         <button class="toggle-password" (click)="toggleRepeatPasswordVisibility()">
           <i class="fa" [ngClass]="repeatPasswordType ? 'fa-eye' : 'fa-eye-slash'"></i>
         </button>
       </div>
       <div class="container d-flex justify-content-center" style="padding-top: 50px;">
-        <button class="botao-login" 
-        (click)="accountRegister(form.get('username')?.value,form.get('email')?.value,form.get('password1')?.value,form.get('password2')?.value)"
-        >Cadastro</button>
+        <button class="botao-login"
+          (click)="accountRegister(form.get('username')?.value,form.get('email')?.value,form.get('password1')?.value,form.get('password2')?.value)">Cadastro</button>
       </div>
     </form>
   </div>

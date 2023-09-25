@@ -1,7 +1,7 @@
 <main>
   <input type="text" [formControl]="search" class="input-search" placeholder="Encontre seu evento">
   <div class="card" *ngFor="let item of this.eventos| paginate: { itemsPerPage: 5, totalItems: this.pages, currentPage: p } 
-  " (click)="navegarParaDetalhes(item.id)">
+    " (click)="navegarParaDetalhes(item.id)">
     <div>
       <img src={{item.foto_principal}} alt="">
       <div class="overlay"></div>

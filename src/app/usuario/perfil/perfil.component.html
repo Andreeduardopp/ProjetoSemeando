@@ -18,10 +18,10 @@
             <button class="text-button col-lg-2" [ngClass]="{'active': botaoAtivo === 'eventos-do-usuario'}"
                 (click)="abreEventos()">Eventos do usuario</button>
             <button class="logout-button col-lg-2" (click)="logout()">Log out</button>
-
+    
         </div>
-        <div class="main-content">    
-            <router-outlet></router-outlet>  
+        <div class="main-content">
+            <router-outlet></router-outlet>
         </div>
         <div class="detail" style="position: relative;">
             <div class="background2">

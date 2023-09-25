@@ -13,13 +13,15 @@
   </div>
   <div class="navegacao ">
     <div class="rotas row">
-      <div class="col-md-3 " ><a class="rota" routerLink="principal" routerLinkActive="routeActive">Todos os eventos</a></div>
-      <div class="col-md-3 "><a class="rota" routerLink="semanais" routerLinkActive="routeActive">Eventos da semana</a></div>
+      <div class="col-md-3 "><a class="rota" routerLink="principal" routerLinkActive="routeActive">Todos os eventos</a>
+      </div>
+      <div class="col-md-3 "><a class="rota" routerLink="semanais" routerLinkActive="routeActive">Eventos da semana</a>
+      </div>
       <div class="col-md-3">
         <a *ngIf="!token" href="http://localhost:4200/login" class="botao-login">
           <span>Log in</span>
         </a>
-        <a *ngIf="token" (click)="abrePerfil()" class="botao-login" >
+        <a *ngIf="token" (click)="abrePerfil()" class="botao-login">
           <span>Conta</span>
         </a>
       </div>

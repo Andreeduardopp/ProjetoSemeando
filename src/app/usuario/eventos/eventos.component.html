@@ -1,9 +1,9 @@
 <main>
-  <div class="card" *ngFor="let item of this.eventos" (click)="editarEvento(item.id, $event)"
-  #tooltip="matTooltip" matTooltip="Clique para editar o evento" matTooltipPosition="above">
-  <button class="delete-button fa-solid fa-trash" (click)="deletarEvento(item.id)"
-  #tooltip="matTooltip" matTooltip="Clique para deletar o evento" matTooltipPosition="right">
-  </button>
+  <div class="card" *ngFor="let item of this.eventos" (click)="editarEvento(item.id, $event)" #tooltip="matTooltip"
+    matTooltip="Clique para editar o evento" matTooltipPosition="above">
+    <button class="delete-button fa-solid fa-trash" (click)="deletarEvento(item.id)" #tooltip="matTooltip"
+      matTooltip="Clique para deletar o evento" matTooltipPosition="right">
+    </button>
     <div>
       <img src={{item.foto_principal}} alt="">
       <div class="overlay"></div>
@@ -20,5 +20,7 @@
       </a>
     </div>
   </div>
-  <div *ngIf="this.eventos.length === 0" style="height: 50vh;"><h1>Nenhum evento criado</h1></div>
+  <div *ngIf="this.eventos.length === 0" style="height: 50vh;">
+    <h1>Nenhum evento criado</h1>
+  </div>
 </main>

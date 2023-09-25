@@ -19,9 +19,9 @@
                 <label for="password" class="password-label">Senha</label>
                 <input [type]="fieldTextType ? 'text' : 'password'" class="form-control password-input" id="password"
                     formControlName="password" [ngClass]="{
-                        'is-valid': form.get('password')?.valid,
-                        'is-invalid': form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)
-                    }">
+                                    'is-valid': form.get('password')?.valid,
+                                    'is-invalid': form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)
+                                }">
                 <button class="toggle-password" (click)="togglePasswordVisibility()">
                     <i class="fa" [ngClass]="fieldTextType ? 'fa-eye' : 'fa-eye-slash'"></i>
                 </button>

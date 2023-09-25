@@ -4,13 +4,14 @@ import { RequestsService } from 'src/app/services/requests/requests.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
+import { Usuario } from 'src/app/models/usuario/usuario';
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent implements OnInit {
-  usuario: any;
+  usuario!: Usuario;
   usuarioForm!: FormGroup
   editar: boolean = false
   selectedFile!: any;
