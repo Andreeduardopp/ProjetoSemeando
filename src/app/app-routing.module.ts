@@ -10,7 +10,6 @@ import { DetalheUserComponent } from './main/detalhe-user/detalhe-user.component
 
 const routes: Routes = [
   { path: '', redirectTo: '/eventos/principal', pathMatch: 'full' },
-  { path: "card", component: CardsComponent },
   { path: "login", component: LoginComponent },
   { path: "organizador", component: DetalheUserComponent },
   { path: "cadastro", component: CadastroComponent },
@@ -20,11 +19,9 @@ const routes: Routes = [
     loadChildren: () => import('./main/main.module').then(m => m.MainModule)},
   {
     path: "perfil", component: PerfilComponent,
-    loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)},
-  // {
-  //   path: '**',
-  //   redirectTo: '/eventos/principal'
-  // }
+    loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)
+  },
+
 ];
 
 @NgModule({

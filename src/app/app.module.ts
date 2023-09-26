@@ -6,7 +6,6 @@ import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MainModule } from './main/main.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CurrencyMaskDirective } from './diretivas/currency-mask/currency-mask.directive';
 import { AuthGuard } from './guard/auth.guard';
 import { TokenInjectionService } from './services/tokenInjection/token-injection.service';
 
@@ -14,7 +13,6 @@ import { TokenInjectionService } from './services/tokenInjection/token-injection
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyMaskDirective,
   ],
   imports: [
     BrowserModule,

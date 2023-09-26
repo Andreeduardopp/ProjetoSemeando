@@ -18,7 +18,7 @@ export class CardSemanaComponent implements OnInit {
   p: number = 1;
   page!:any
   pages:any
-
+  loading:boolean = false
 
   constructor(
     private requestService: RequestsService,
@@ -46,11 +46,13 @@ export class CardSemanaComponent implements OnInit {
   }
 
   buscarEventos() {
+    this.loading = true
     const currentPage = this.p
     this.httpParams = this.httpParams.set('page', currentPage.toString())
     this.httpParams = this.httpParams.set('ordering', 'data')
     this.requestService.getEventosSemana(this.httpParams)
       .subscribe(eventos => {
+        this.loading=false
         this.eventos = eventos.filter(it => this.capturaSemanais(it.data))
       })
   }

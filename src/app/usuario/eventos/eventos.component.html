@@ -20,6 +20,7 @@
       </a>
     </div>
   </div>
+  <app-loader *ngIf="loading"></app-loader>
   <div *ngIf="this.eventos.length === 0" style="height: 50vh;">
     <h1>Nenhum evento criado</h1>
   </div>

@@ -18,5 +18,6 @@
       </a>
     </div>
   </div>
+  <app-loader *ngIf="loading"></app-loader>
   <pagination-controls style="width: 100%; padding-left: 35%;" (pageChange)="onPageChange($event)"></pagination-controls>
 </main>

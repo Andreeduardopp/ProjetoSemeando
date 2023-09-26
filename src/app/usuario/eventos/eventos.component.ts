@@ -13,6 +13,7 @@ export class EventosComponent implements OnInit {
   httpParams = new HttpParams()
   eventos: Evento[] = []
   evento!: Evento
+  loading:boolean = false
 
   constructor(
     private requestService: RequestsService,
@@ -20,10 +21,12 @@ export class EventosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = true
     let usuarioId = localStorage.getItem('user_PK');
     this.httpParams = this.httpParams.set('user_id', usuarioId!)
     this.requestService.getEventoUser(this.httpParams)
       .subscribe(eventos => {
+        this.loading = false
         this.eventos = eventos
      })
   }

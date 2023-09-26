@@ -45,9 +45,9 @@ export class TokenInjectionService implements HttpInterceptor {
                   });
                   return next.handle(updatedRequest);
                 }),
-                catchError((tokenError) => {
-                  // Se não for possível renovar o token, redirecione para /login
-                  this.requestService.logout()
+                catchError((tokenError:HttpErrorResponse) => {
+                  if (error.status === 401) {
+                  this.requestService.logout()}
                   return throwError(tokenError);
                 })
               );

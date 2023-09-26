@@ -19,6 +19,8 @@ import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.componen
 import { DetalheUserComponent } from './detalhe-user/detalhe-user.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoaderComponent } from './loader/loader.component';
+
 @NgModule({
   declarations: [
     CardsComponent,
@@ -29,6 +31,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CardSemanaComponent,
     DetalheEventoComponent,
     DetalheUserComponent,
+    LoaderComponent,
+
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatTableModule,
     RouterModule,
     MainRoutingModule,
-    ModalModule.forRoot() ,
+    ModalModule.forRoot(),
     NgxPaginationModule,
   ],
   exports:[
@@ -52,7 +56,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     LoginComponent,
     CardSemanaComponent,
-    DetalheUserComponent
+    DetalheUserComponent,
+    LoaderComponent
   ]
 })
 export class MainModule { }

@@ -23,6 +23,7 @@ export class CardsComponent {
   httpParams = new HttpParams()
   page!:any
   pages:any
+  loading:boolean = false
 
   constructor(
     private requestService: RequestsService,
@@ -55,10 +56,12 @@ export class CardsComponent {
   }
 
   buscarEventos() {
+    this.loading = true;
     const currentPage = this.p;
     this.httpParams = this.httpParams.set('page', currentPage.toString())
     this.requestService.getEventos(this.httpParams)
       .subscribe(eventos => {
+        this.loading = false
         this.eventos = eventos
       })
   }
