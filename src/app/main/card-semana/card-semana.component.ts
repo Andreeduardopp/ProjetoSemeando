@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { FormControl } from '@angular/forms'
-import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { HttpParams } from '@angular/common/http'
+import { catchError, debounceTime, distinctUntilChanged, throwError } from 'rxjs';
+import { HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Evento } from 'src/app/models/evento/evento';
 @Component({
   selector: 'app-card-semana',
@@ -54,7 +54,12 @@ export class CardSemanaComponent implements OnInit {
       .subscribe(eventos => {
         this.loading=false
         this.eventos = eventos.filter(it => this.capturaSemanais(it.data))
-      })
+      }),
+      catchError((error:HttpErrorResponse) => {
+        this.loading = false
+        return throwError(error);
+      } )
+      
   }
 
   

@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { FormControl } from '@angular/forms'
-import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { HttpParams } from '@angular/common/http'
+import { catchError, debounceTime, distinctUntilChanged, throwError } from 'rxjs';
+import { HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Evento } from 'src/app/models/evento/evento';
 
@@ -63,6 +63,10 @@ export class CardsComponent {
       .subscribe(eventos => {
         this.loading = false
         this.eventos = eventos
-      })
+      }),
+      catchError((error:HttpErrorResponse) => {
+        this.loading = false
+        return throwError(error);
+      } )
   }
 }

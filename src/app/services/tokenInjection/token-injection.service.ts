@@ -19,11 +19,11 @@ export class TokenInjectionService implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if(request.url.includes('/accounts/login/')){
+    if(request.url.includes('/accounts/login/') || request.url.includes('/accounts/registration')){
       return next.handle(request);
     }
     // Verifique o método da solicitação (GET, POST, PUT, DELETE)
-    if (request.method === 'POST' || request.method === 'PUT' || request.method === 'DELETE' || request.url.includes('/accounts/registration')) {
+    if (request.method === 'POST' || request.method === 'PUT' || request.method === 'DELETE' ) {
       // Verifique se o token de acesso está presente no armazenamento local
       const accessToken = localStorage.getItem('access_token');
       if (accessToken) {
