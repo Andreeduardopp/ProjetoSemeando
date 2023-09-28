@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',

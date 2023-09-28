@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { Usuario } from 'src/app/models/usuario/usuario';
+import Swal from 'sweetalert2'
+
+
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
@@ -18,7 +21,7 @@ export class UserInfoComponent implements OnInit {
   imagePreviewUrl: any;
 
   constructor(
-    private router:Router,
+    private router: Router,
     private route: ActivatedRoute,
     private requestService: RequestsService,
     private formBuilder: FormBuilder
@@ -73,17 +76,31 @@ export class UserInfoComponent implements OnInit {
       };
       this.requestService.putUsuario(formData, this.usuario.id).subscribe(
         (response) => {
-          console.log('Informações editadas com sucesso:', response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Informações editadas com sucesso',
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.editar = false
         },
         (error) => {
-          console.log('Erro ao editar o evento:', error);
-          location.reload();        }
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Erro ao editar o usuario!',
+            footer: '<a href="/contato">Precisa de ajuda?</a>'
+          });
+        }
       );
     } else {
-      alert('Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.',
+      })
       this.usuarioForm.markAllAsTouched(),
-      this.usuarioForm.markAllAsTouched()
+        this.usuarioForm.markAllAsTouched()
     }
   }
 

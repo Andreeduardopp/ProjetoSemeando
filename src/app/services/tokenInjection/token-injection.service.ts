@@ -18,6 +18,9 @@ export class TokenInjectionService implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    if(request.url.includes('/accounts/login/')){
+      return next.handle(request);
+    }
     // Verifique o método da solicitação (GET, POST, PUT, DELETE)
     if (request.method === 'POST' || request.method === 'PUT' || request.method === 'DELETE' || request.url.includes('/accounts/registration')) {
       // Verifique se o token de acesso está presente no armazenamento local
@@ -54,11 +57,15 @@ export class TokenInjectionService implements HttpInterceptor {
             } else {
               // Para outros erros, exiba um alerta e redirecione para /login
               this.requestService.logout()
-              this.router.navigate(['/usuario/login']);
+              this.router.navigate(['/login']);
               return throwError('Erro, realize o login novamente');
             }
           })
         );
+      }
+      else{
+        alert('Realize o login novamente.')
+        this.router.navigate(['/login']);
       }
     }
 
