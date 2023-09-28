@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RequestsService } from '../requests/requests.service';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,12 @@ export class TokenInjectionService implements HttpInterceptor {
             } else {
               // Para outros erros, exiba um alerta e redirecione para /login
               this.requestService.logout()
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Erro. Tente novamente.',
+                timer:1500,
+              })
               this.router.navigate(['/login']);
               return throwError('Erro, realize o login novamente');
             }
@@ -64,7 +71,12 @@ export class TokenInjectionService implements HttpInterceptor {
         );
       }
       else{
-        alert('Realize o login novamente.')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Realize o login novamente.',
+          timer:1500,
+        })
         this.router.navigate(['/login']);
       }
     }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-criar-evento',
@@ -107,18 +107,25 @@ export class CriarEventoComponent implements OnInit {
 
       this.requestService.postEvento(formData).subscribe(
         () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Evento criado com sucesso',
+            showConfirmButton: false,
+            timer: 1000
+          });
           this.FormStep1.reset();
           this.FormStep2.reset();
           this.selectedFile = null; // Limpa a imagem selecionada
           this.router.navigate(['eventos/principal'])
-        },
-        (error) => {
-          alert('Erro ao criar evento, tente novamente');
         }
       );
     } else {
-      alert('Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.');
-      this.FormStep1.markAllAsTouched(),
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.',
+      })
+        this.FormStep1.markAllAsTouched(),
         this.FormStep2.markAllAsTouched()
     }
   }

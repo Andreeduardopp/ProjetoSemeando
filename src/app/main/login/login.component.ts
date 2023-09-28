@@ -4,6 +4,8 @@ import { RequestsService } from 'src/app/services/requests/requests.service';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -41,7 +43,11 @@ export class LoginComponent {
 
     this.requestService.login(formData).pipe(
       catchError(() => {
-        alert('Dados invalidos. Verifique se todos os campos estão preenchidos corretamente.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Dados invalidos. Verifique se todos os campos estão preenchidos corretamente.',
+        });
         return throwError('Erro ocorreu'); // Retorna um erro para parar a cadeia de observação
       })
     ).subscribe(
@@ -50,13 +56,10 @@ export class LoginComponent {
         if (response.access && response.refresh) {
           localStorage.setItem('access_token', response.access);
           localStorage.setItem('refresh_token', response.refresh);
-          localStorage.setItem('user_PK',response.user.pk)
+          localStorage.setItem('user_PK', response.user.pk)
           this.form.reset()
           this.router.navigate(['usuario/perfil', response.user.pk])
         }
-       else{
-            alert('Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.');
-            this.form.markAllAsTouched()}
-          })
+      })
   }
 }

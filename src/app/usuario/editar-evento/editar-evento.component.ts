@@ -5,6 +5,7 @@ import { HttpClient, } from '@angular/common/http';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-editar-evento',
@@ -117,17 +118,24 @@ export class EditarEventoComponent implements OnInit {
       };
       this.requestService.putEvento(formData, this.evento.id).subscribe(
         (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Informações editadas com sucesso',
+            showConfirmButton: false,
+            timer: 1500
+          });
           console.log('Evento editado com sucesso:', response);
           this.router.navigate(['usuario/eventos'])
-        },
-        (error) => {
-          console.log('Erro ao editar o evento:', error);
         }
       );
     } else {
-      alert('Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.',
+      })
       this.FormStep1.markAllAsTouched(),
-        this.FormStep2.markAllAsTouched()
+      this.FormStep2.markAllAsTouched()
     }
   }
 

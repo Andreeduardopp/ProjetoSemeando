@@ -84,14 +84,6 @@ export class UserInfoComponent implements OnInit {
           });
           this.editar = false
         },
-        (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Erro ao editar o usuario!',
-            footer: '<a href="/contato">Precisa de ajuda?</a>'
-          });
-        }
       );
     } else {
       Swal.fire({

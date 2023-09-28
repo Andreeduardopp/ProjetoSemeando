@@ -45,11 +45,21 @@ export class CadastroComponent {
       (response) => {
         console.log(response)
         if (response) {
-          alert('Por favor, confirme seu e-mail pelo link enviado no e-mail cadastrado.')
+          Swal.fire({
+            icon: 'success',
+            title: 'Por favor, confirme seu e-mail pelo link enviado no e-mail cadastrado.',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.form.reset()
           this.router.navigate(['usuario/perfil'])}
         else {
-          alert('Formulário inválido. Verifique se todos os campos estão preenchidos corretamente.');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Formulário inválido. Verifique se todos os campos estão preenchidos corretamente!',
+            timer:1500
+          });
           this.form.markAllAsTouched()
         }
       })
