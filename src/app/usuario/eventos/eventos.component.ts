@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 import { HttpParams } from '@angular/common/http'
 import { Evento } from 'src/app/models/evento/evento';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-eventos',
@@ -43,14 +44,20 @@ export class EventosComponent implements OnInit {
     this.router.navigate(['usuario/evento', eventoId])
   }
 
-  deletarEvento(eventoId: number){
+  deletarEvento(eventoId: number) {
     let usuarioId = localStorage.getItem('user_PK');
-    const confirmacao = window.confirm('Tem certeza de que deseja deletar este evento?');
-
-    if (confirmacao) {
-      this.requestService.deleteEvento(eventoId);
-      this.router.navigate([`usuario/perfil/${usuarioId}`])
-    }
+    Swal.fire({
+      title: 'Deseja deletar o evento?',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Evento deletado!', '', 'error')
+        this.requestService.deleteEvento(eventoId);
+        this.router.navigate([`usuario/perfil/${usuarioId}`])
+      }
+    });
   }
 }
 

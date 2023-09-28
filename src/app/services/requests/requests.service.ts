@@ -145,7 +145,7 @@ export class RequestsService {
   }
 
   deleteEvento(id: any) {
-    return this.httpClient.delete<any>(`${this.url}/eventos/eventos/${id}`).subscribe(() => alert("evento excluido!"))
+    return this.httpClient.delete<any>(`${this.url}/eventos/eventos/${id}`).subscribe()
   }
   //---------------------------------lOGIN E AUTH--------------------------------------------------------------
 
