@@ -56,4 +56,8 @@ export class PerfilComponent implements OnInit {
   logout() {
     this.requestService.logout()
   }
+  
+  navPerfil(){
+    this.router.navigate([`usuario/criarEvento/`])
+  }
 }

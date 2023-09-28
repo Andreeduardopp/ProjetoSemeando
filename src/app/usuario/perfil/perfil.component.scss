@@ -183,3 +183,26 @@
     height: auto;
   }
 }
+
+.add-evento-button {
+  position: fixed;
+  top: 85vh;
+  left: 95vw;
+  font-size: 2rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: black;
+  background: transparent;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: #FFB7C5;
+  z-index: 5;
+  &:hover {
+    scale: 1.1;
+  }
+}
