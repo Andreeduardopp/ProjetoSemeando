@@ -18,7 +18,7 @@
       </a>
     </div>
   </div>
-  <app-loader *ngIf="loading && this.eventos.length !== 0"></app-loader>
-  <div *ngIf="this.eventos.length === 0 && !this.loading" style="height: 50vh; display: flex; justify-content: center; align-items: center;"><h1>Nenhum evento criado</h1></div>
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="this.eventos.length === 0 && !this.loading" style="height: 50vh; display: flex; justify-content: center; align-items: center;"><h1>Nenhum evento para essa semana</h1></div>
   <pagination-controls style="width: 100%; padding-left: 35%;" (pageChange)="onPageChange($event)"></pagination-controls>
 </main>

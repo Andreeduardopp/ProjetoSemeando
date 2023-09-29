@@ -2,9 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { MainComponent } from "./main/main.component";
 import { CardsComponent } from "./cards/cards.component";
-import { FooterComponent } from "./footer/footer.component";
-import { MenuComponent } from "./menu/menu.component";
-import { LoginComponent } from "./login/login.component";
+
 import { CardSemanaComponent } from "./card-semana/card-semana.component";
 import { DetalheEventoComponent } from "./detalhe-evento/detalhe-evento.component";
 

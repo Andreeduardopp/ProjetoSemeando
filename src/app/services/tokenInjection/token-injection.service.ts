@@ -22,22 +22,17 @@ export class TokenInjectionService implements HttpInterceptor {
     if(request.url.includes('/accounts/login/') || request.url.includes('/accounts/registration')){
       return next.handle(request);
     }
-    // Verifique o método da solicitação (GET, POST, PUT, DELETE)
     if (request.method === 'POST' || request.method === 'PUT' || request.method === 'DELETE' ) {
-      // Verifique se o token de acesso está presente no armazenamento local
       const accessToken = localStorage.getItem('access_token');
       if (accessToken) {
-        // Clone a solicitação original e inclua o token de acesso no cabeçalho "Authorization"
         const clonedRequest = request.clone({
           setHeaders: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        // Continue com a solicitação clonada
         return next.handle(clonedRequest).pipe(
           catchError((error: HttpErrorResponse) => {
             if (error.status === 401) {
-              // Lidar com o erro 401: chame a função renovaToken e tente novamente
               return this.requestService.renovaToken().pipe(
                 switchMap((response) => {
                   let newToken = response.access
@@ -49,14 +44,13 @@ export class TokenInjectionService implements HttpInterceptor {
                   });
                   return next.handle(updatedRequest);
                 }),
-                catchError((tokenError:HttpErrorResponse) => {
+                catchError(() => {
                   if (error.status === 401) {
                   this.requestService.logout()}
-                  return throwError(tokenError);
+                  return throwError(() => error);
                 })
               );
             } else {
-              // Para outros erros, exiba um alerta e redirecione para /login
               this.requestService.logout()
               Swal.fire({
                 icon: 'error',
@@ -65,11 +59,12 @@ export class TokenInjectionService implements HttpInterceptor {
                 timer:1500,
               })
               this.router.navigate(['/login']);
-              return throwError('Erro, realize o login novamente');
+              return throwError(() => error);
             }
           })
         );
       }
+    //ou se o token não exitir.
       else{
         Swal.fire({
           icon: 'error',
@@ -81,8 +76,7 @@ export class TokenInjectionService implements HttpInterceptor {
       }
     }
 
-    // Se não for uma solicitação POST, PUT ou DELETE ou se o token não estiver presente,
-    // continue com a solicitação original
+    // Se não for uma solicitação POST, PUT ou DELETE 
     return next.handle(request);
   }
 }

@@ -32,7 +32,6 @@ import { LoaderComponent } from './loader/loader.component';
     DetalheEventoComponent,
     DetalheUserComponent,
     LoaderComponent,
-
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { RequestsService } from 'src/app/services/requests/requests.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DetalheUserComponent } from '../detalhe-user/detalhe-user.component';
 import { Usuario } from 'src/app/models/usuario/usuario';
+import { Evento } from 'src/app/models/evento/evento';
 
 @Component({
   selector: 'app-detalhe-evento',
@@ -11,7 +12,7 @@ import { Usuario } from 'src/app/models/usuario/usuario';
   styleUrls: ['./detalhe-evento.component.scss']
 })
 export class DetalheEventoComponent implements OnInit {
-  evento: any;
+  evento!: Evento;
   usuario!: Usuario;
 
   constructor(
